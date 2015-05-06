@@ -29,7 +29,7 @@ namespace IisApplicationHostManager
     internal bool AddTo(Microsoft.Web.Administration.BindingCollection collection)
     {
       string bindingInformation = "*:" + _port + ":" + _hostName;
-      Microsoft.Web.Administration.Binding existingBinding = collection.SingleOrDefault(b => b.Host.Equals(_hostName, StringComparison.InvariantCultureIgnoreCase));
+      Microsoft.Web.Administration.Binding existingBinding = collection.SingleOrDefault(b => b.BindingInformation.Equals(bindingInformation, StringComparison.InvariantCultureIgnoreCase));
       bool changed = false;
       if (existingBinding != null)
       {
