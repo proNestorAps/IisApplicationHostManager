@@ -10,6 +10,7 @@ namespace IisApplicationHostManager
   {
     private readonly string _applicationHostPath;
 
+    public static ApplicationHostManager IIS = new ApplicationHostManager(Path.Combine(Environment.ExpandEnvironmentVariables("%windir%\\system32\\inetsrv\\config"), "applicationhost.config"));
     public static ApplicationHostManager IISExpress = new ApplicationHostManager(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "IISExpress", "config", "applicationhost.config"));
 
     public ApplicationHostManager(string applicationHostPath)
